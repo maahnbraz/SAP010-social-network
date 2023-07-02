@@ -22,7 +22,7 @@ export const getLoginPage = () => {
     </section>
 
     <section class="container">
-    <h4>Explore, compartilhe, viaje com seu guia pessoal de aventuras.</h4>
+    <h4 class="slogan">Explore, compartilhe, viaje com seu guia pessoal de aventuras.</h4>
     <form class="form-login">
       <span class="text-title">Faça seu login</span>
       <input class="input-login" type="email" id="input-email" placeholder="user@email.com" />
