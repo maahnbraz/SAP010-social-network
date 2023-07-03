@@ -142,7 +142,7 @@ f) Por fim, caso decida sair da página do Feed, terei a opção de sair diretam
 
 ## 6. Desenvolvedoras
 
-Aline Plampona
+Aline Pamplona
 
 [![Github Badge](https://img.shields.io/badge/-Github-000?style=flat-square&logo=Github&logoColor=white&link)](https://github.com/alinepamplona) [![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white&link)](https://www.linkedin.com/in/alinebpamplona/)
 
