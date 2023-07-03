@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 100vh;
   margin: 0;
   padding: 0;
   align-items: center;
@@ -103,6 +102,11 @@
   display: none;
 }
 
+.slogan{
+  font-family: 'Amatic SC', cursive;
+  color: white;
+}
+
 .container {
   display: flex;
   align-items: center;
@@ -118,6 +122,7 @@
   .login-container {
     display: flex;
     flex-direction: row;
+    height: 100vh;
   }
 
   .container {
@@ -131,7 +136,6 @@
   .texto-login {
     display: flex;
     text-align: justify;
-
     font-family: 'Amatic SC', cursive;
     color: white;
   }
@@ -140,6 +144,15 @@
     width: 100%;
     display: flex;
     align-items: center;
+  }
+
+  .section-logo img{
+    width: 50%;
+  }
+
+  .section-logo h2{
+    font-size: 3rem;
+    margin: 0;
   }
 
   .form-login {
