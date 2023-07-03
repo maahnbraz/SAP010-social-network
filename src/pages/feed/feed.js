@@ -19,17 +19,20 @@ export default () => {
       <h2 class="titleHeader">TravellersBook<img class="logoHeader" src="./img/balão1.png" alt="balão"></h2>
 
       <nav class="menu">
-        <a href='#home'>Home</a>
         <a id='button-logout'>Sair</a>
       </nav>
     </section>
 
+    <div class='div-line'></div>
+
     <section class="publish">
-      <input id='input-text' class='input-text' type='text' placeholder='Compartilhe suas aventuras...'></input>
+      <textarea id='input-text' class='input-text' type='text' placeholder='Compartilhe suas aventuras...'></textarea>
       <button id='button-publish' class='button-publish'>Publicar</button>
     </section>
 
-    <div id="feed"></div>`;
+    <div class='div-line'></div>
+
+    <section id="feed"></section>`;
 
   feedContainer.innerHTML = content;
 
@@ -113,14 +116,18 @@ function createPostElement(post, feedElement) {
       <p class="name">${post.username}</p>
       <p class="date">${dia}/${mes}/${ano} ${hora}:${minuto}</p>
     </div>
-    <p class="text">${post.text}</p>
-    <div class='container-btn'> 
-      <p id='button-like'><svg xmlns="http://www.w3.org/2000/svg"  class='icons-post' width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
-      <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
-    </svg></p>
-      <p class="like" id='text-like-count'>${post.likes.length}</p>
-      ${btnEdit}
-      ${btnDelete}
+    <div class="text">${post.text}</div>
+    <div class='container-btn'>
+      <div class='container-like'>
+        <p id='button-like'><svg xmlns="http://www.w3.org/2000/svg"  class='icons-post' width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+        <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+        </svg></p>
+        <p class="like" id='text-like-count'>${post.likes.length}</p>
+      </div>
+      <div class='container-edit'>
+        ${btnEdit}
+        ${btnDelete}
+      </div>
     </div>
   `;
 
