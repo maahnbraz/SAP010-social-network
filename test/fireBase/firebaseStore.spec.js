@@ -257,7 +257,7 @@ describe('createPostElement', () => {
         seconds: 1625168400,
         nanoseconds: 0,
       },
-      username: 'john.doe',
+      username: 'usuariotest',
       text: 'Exemplo de postagem',
       likes: [],
       uid: 'user123',

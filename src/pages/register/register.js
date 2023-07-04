@@ -1,6 +1,6 @@
 import { createUser } from '../../fireBase/firebaseAuth.js';
 import { userData } from '../../fireBase/firebaseStore.js';
-import customAlert from '../../components/customAlert.js'
+import customAlert from '../../components/customAlert.js';
 
 export default () => {
   const registerContainer = document.createElement('div');
@@ -32,9 +32,9 @@ export default () => {
     `;
   registerContainer.innerHTML = content;
 
-  const buttonBack = registerContainer.querySelector('.button-back')
+  const buttonBack = registerContainer.querySelector('.button-back');
   buttonBack.addEventListener('click', () => {
-    window.location.hash = '#login'
+    window.location.hash = '#login';
   });
 
   const register = registerContainer.querySelector('.form-register');
@@ -42,29 +42,35 @@ export default () => {
     event.preventDefault();
 
     const nameElement = registerContainer.querySelector('#nameRegister');
-    const textNameError = registerContainer.querySelector ('#text-name-error');
-    const lastNameElement = registerContainer.querySelector('#lastnameRegister');
-    const textLastNameError = registerContainer.querySelector('#text-last-name-error')
+    const textNameError = registerContainer.querySelector('#text-name-error');
+    const lastNameElement =
+      registerContainer.querySelector('#lastnameRegister');
+    const textLastNameError = registerContainer.querySelector(
+      '#text-last-name-error'
+    );
     const userElement = registerContainer.querySelector('#userRegister');
-    const textUserError =registerContainer.querySelector('#text-user-error');
+    const textUserError = registerContainer.querySelector('#text-user-error');
     const emailElement = registerContainer.querySelector('#emailRegister');
     const textEmailError = registerContainer.querySelector('#text-email-error');
-    const passwordElement = registerContainer.querySelector('#passwordRegister');
-    const textPasswordError = registerContainer.querySelector('#text-password-error');
+    const passwordElement =
+      registerContainer.querySelector('#passwordRegister');
+    const textPasswordError = registerContainer.querySelector(
+      '#text-password-error'
+    );
 
-    nameElement.classList.remove('input-error')
+    nameElement.classList.remove('input-error');
     textNameError.innerHTML = '';
 
-    lastNameElement.classList.remove('input-error')
+    lastNameElement.classList.remove('input-error');
     textLastNameError.innerHTML = '';
 
-    userElement.classList.remove('input-error')
+    userElement.classList.remove('input-error');
     textUserError.innerHTML = '';
 
-    emailElement.classList.remove('input-error')
+    emailElement.classList.remove('input-error');
     textEmailError.innerHTML = '';
 
-    passwordElement.classList.remove('input-error')
+    passwordElement.classList.remove('input-error');
     textPasswordError.innerHTML = '';
 
     if (
@@ -72,25 +78,20 @@ export default () => {
       lastNameElement.value === '' ||
       userElement.value === ''
     ) {
-      if (userElement.value === ''){
-        userElement.classList.add('input-error')
+      if (userElement.value === '') {
+        userElement.classList.add('input-error');
         textUserError.innerHTML = 'Preencha esse campo';
       }
       if (nameElement.value === '') {
-        nameElement.classList.add('input-error')
+        nameElement.classList.add('input-error');
         textNameError.innerHTML = 'Preencha esse campo';
       }
-      if (lastNameElement.value === ''){
-        lastNameElement.classList.add('input-error')
+      if (lastNameElement.value === '') {
+        lastNameElement.classList.add('input-error');
         textLastNameError.innerHTML = 'Preencha esse campo';
       }
-
     } else {
-      createUser(
-        emailElement.value,
-        passwordElement.value,
-        userElement.value
-      )
+      createUser(emailElement.value, passwordElement.value, userElement.value)
         .then(() =>
           userData(
             nameElement.value,
@@ -100,7 +101,7 @@ export default () => {
           )
         )
         .then(() => {
-          customAlert('Cadastrado realizado com sucesso')
+          customAlert('Cadastrado realizado com sucesso');
           window.location.hash = '#login';
         })
         .catch(error => {
@@ -127,13 +128,13 @@ export default () => {
 
             case 'auth/weak-password':
               passwordElement.classList.add('input-error');
-              textPasswordError.innerHTML = 'A senha deve conter no mín. 6 dígitos';
+              textPasswordError.innerHTML =
+                'A senha deve conter no mín. 6 dígitos';
               break;
 
             default:
-              textPasswordError.innerHTML = "Erro ao cadastrar: " + error.code;
+              textPasswordError.innerHTML = 'Erro ao cadastrar: ' + error.code;
           }
-
         });
     }
   });
