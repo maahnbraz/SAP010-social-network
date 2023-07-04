@@ -6,6 +6,7 @@ html {
   padding: 0;
   margin: 0;
 }
+
 body {
   width: 100%;
   display: flex;
@@ -16,6 +17,7 @@ body {
   margin: 0;
   background-image: linear-gradient(to top, #86c0ca, #008da1);
 }
+
 main {
   flex-grow: 1;
   display: flex;
@@ -46,9 +48,6 @@ h2 {
   color: #fff;
 }
 
-
-
-
 .customAlert {
   position: fixed;
   bottom: 20px;
@@ -58,9 +57,87 @@ h2 {
   border-radius: 4px;
 }
 
+.dialog-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.edit-dialog {
+  position: fixed;
+  border-radius: 5px;
+  width: 75%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px 20px 10px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.div-btn-dialog {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.div-btn-dialog button {
+  color: #fff;
+  background-color: #193549;
+  margin: 0 5px;
+  border-radius: 5px;
+  border: none;
+  padding: 2px 5px;
+  width: 100px;
+}
+
+.edit-dialog textarea {
+  resize: none;
+  margin-bottom: 10px;
+  height: 150px;
+  border:1.5px solid #193549;
+  border-radius: 5px;
+}
+
+.dialog {
+  position: fixed;
+  border-radius: 5px;
+  width: 60%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.dialog button{
+  align-items: center;
+  padding: 2px 5px;
+  width: 80px;
+  margin-top: 10px;
+}
+
 footer {
  margin: 0;
   font-family: 'arial', cursive;
   font-size: 10px;
   color: #000;
+}
+
+@media (min-width: 400px) {
+  .edit-dialog {
+    width: 350px;
+  }
+
+  .dialog {
+    width: 250px;
+  }
 }

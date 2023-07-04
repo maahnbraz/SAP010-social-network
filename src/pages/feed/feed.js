@@ -9,6 +9,8 @@ import {
   editPost,
 } from '../../fireBase/firebaseStore.js';
 import customAlert from '../../components/customAlert.js';
+import customEditDialog from '../../components/customEditDialog.js';
+import customDialog from '../../components/customDialog.js';
 
 export default () => {
   const feedContainer = document.createElement('div');
@@ -26,6 +28,7 @@ export default () => {
     <div class='div-line'></div>
 
     <section class="publish">
+      <span class ='welcome'>Olá, ${auth.currentUser.displayName}!</span>
       <textarea id='input-text' class='input-text' type='text' placeholder='Compartilhe suas aventuras...'></textarea>
       <button id='button-publish' class='button-publish'>Publicar</button>
     </section>
@@ -58,14 +61,16 @@ export default () => {
 
   const buttonLogOut = feedContainer.querySelector('#button-logout');
   buttonLogOut.addEventListener('click', () => {
-    logOut()
-      .then(() => {
-        window.location.hash = '#login';
-        header.innerHTML = '';
-      })
-      .catch(() => {
-        customAlert('Erro ao sair. Tente novamente.');
-      });
+    customDialog('Deseja realmente sair?', () =>{
+      logOut()
+        .then(() => {
+          window.location.hash = '#login';
+          header.innerHTML = '';
+        })
+        .catch(() => {
+          customAlert('Erro ao sair. Tente novamente.');
+        });
+    });
   });
   showFeed();
 
@@ -170,13 +175,13 @@ function createPostElement(post, feedElement) {
   const buttonDelete = postElement.querySelector('#button-delete');
   if (buttonDelete) {
     buttonDelete.addEventListener('click', async () => {
-      console.log('clicou no botao');
-      await deletePost(post.id);
+      customDialog('Deseja realmente exluir o post?', async () => {
+        await deletePost(post.id);
 
-      feedElement.removeChild(postElement);
+        feedElement.removeChild(postElement);
+      })
 
-      // const isAuthor = currentUser;
-      // if (isAuthor === post.uid) {
+
     });
   }
 
@@ -184,22 +189,26 @@ function createPostElement(post, feedElement) {
   const buttonEdit = postElement.querySelector('.button-edit');
   if (buttonEdit) {
     buttonEdit.addEventListener('click', () => {
-      const postId = postElement.getAttribute('data-post-id');
-      const newText = prompt('Digite o novo texto:');
-      if (newText) {
-        editPost(postId, newText)
-          .then(() => {
-            const textElement = postElement.querySelector('.text');
-            textElement.textContent = newText;
-            alert('Post atualizado com sucesso!');
-          })
-          .catch(error => {
-            console.error('Erro ao editar o post:', error);
-            alert(
-              'Ocorreu um erro ao editar o post. Por favor, tente novamente mais tarde.'
-            );
-          });
-      }
+      //const newText = prompt('Digite o novo texto:');
+      customEditDialog(post.text, (newText) => {
+        const postId = postElement.getAttribute('data-post-id');
+        if (newText) {
+          editPost(postId, newText)
+            .then(() => {
+              const textElement = postElement.querySelector('.text');
+              textElement.textContent = newText;
+              //atualiza a variável post localmente
+              post.text = newText;
+              customAlert('Post atualizado com sucesso!');
+            })
+            .catch(error => {
+              console.error('Erro ao editar o post:', error);
+              customAlert(
+                'Ocorreu um erro ao editar o post. Por favor, tente novamente mais tarde.'
+              );
+            });
+        }
+      })
     });
   }
 
