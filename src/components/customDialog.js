@@ -15,7 +15,6 @@ export default (text, onClickOk) => {
   `;
   dialog.innerHTML = content;
 
-  const inputMessage = dialog.querySelector('#input-message');
   const btnCancel = dialog.querySelector('#btn-cancel');
   const btnOk = dialog.querySelector('#btn-ok');
 
@@ -24,8 +23,9 @@ export default (text, onClickOk) => {
   });
 
   btnOk.addEventListener('click', () => {
-    const newText = inputMessage.value;
-    onClickOk(newText);
+    if (onClickOk) {
+      onClickOk();
+    }
     body.removeChild(dialog);
   });
 

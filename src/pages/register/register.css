@@ -48,7 +48,6 @@
 
 .button-group{
   display: flex;
-  margin-top: 10px;
   margin: 8px 8px 2px 8px;
   width: 90%;
 }

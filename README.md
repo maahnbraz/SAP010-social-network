@@ -1,6 +1,6 @@
 <div align="center">
 
-# Rede Social - TravellerBook
+# Rede Social - TravellersBook
 
 </div>
 
@@ -100,10 +100,6 @@ b) Usuário não autenticado deseja ter a opção de fazer login usando o endere
 c) Novo usuário deseja ter a opção de fazer login usando a conta Google para acessar o site com mais facilidade.
 
 d) Usuário de dispositivo móvel deseja ter uma experiência de login responsiva, onde os campos de entrada e botões se ajustem à tela do dispositivo e sejam fáceis de usar.
-
-e) Usuário que esqueceu a senha deseja ter a opção de redefinir a senha usando o endereço de e-mail registrado.
-
-f) Usuário frequente deseja ter a opção de lembrar as credenciais de login para que não precise inseri-las todas as vezes que visitar o site.
 
 II - Página Register
 
