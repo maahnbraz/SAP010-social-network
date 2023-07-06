@@ -18,7 +18,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         main.appendChild(register());
         break;
       case '#homepage':
-        // verificar uma forma de identificar se está logado ou não. existe função firebase para isso?
+        // verificar uma forma de identificar se está logado ou não.
+        // existe função firebase para isso?
         if (logged) {
           main.appendChild(feed());
         } else {
@@ -37,10 +38,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   };
 
-  // hashchange escuta o evento de mudança de hash que chama o renderPage carrega a página que está a hash
+  // hashchange escuta o evento de mudança de hash que chama o renderPage
+  // carrega a página que está a hash
   window.addEventListener('hashchange', renderPage);
 
-  // escuta o evento da primeira vez que carrega a página e executa o renderPage para saber qual página vai carregar
+  // escuta o evento da primeira vez que carrega a página e
+  // executa o renderPage para saber qual página vai carregar
   window.addEventListener('load', renderPage);
 
   onAuthStateChanged(auth, (user) => {

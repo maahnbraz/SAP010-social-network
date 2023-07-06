@@ -93,19 +93,31 @@ Foram definidas as seguintes histórias de usuários, com respectivos critérios
 
 I - Página Login
 
-a) Novo usuário deseja ter a opção de criar uma nova conta no site, fornecendo nome, endereço de e-mail e senha para registrar e acessar recursos exclusivos.
+a) Usuário não autenticado deseja ter a opção de fazer login usando o endereço de e-mail e senha para acessar a conta pessoal no site.
 
-b) Usuário não autenticado deseja ter a opção de fazer login usando o endereço de e-mail e senha para acessar a conta pessoal no site.
+b) Novo usuário deseja ter a opção de fazer login usando a conta Google para acessar o site com mais facilidade.
 
-c) Novo usuário deseja ter a opção de fazer login usando a conta Google para acessar o site com mais facilidade.
+c) Usuário de dispositivo móvel deseja ter uma experiência de login responsiva, onde os campos de entrada e botões se ajustem à tela do dispositivo e sejam fáceis de usar.
 
-d) Usuário de dispositivo móvel deseja ter uma experiência de login responsiva, onde os campos de entrada e botões se ajustem à tela do dispositivo e sejam fáceis de usar.
+d) Usuário que esqueceu a senha deseja ter a opção de redefinir a senha usando o endereço de e-mail registrado.
 
-e) Usuário que esqueceu a senha deseja ter a opção de redefinir a senha usando o endereço de e-mail registrado.
-
-f) Usuário frequente deseja ter a opção de lembrar as credenciais de login para que não precise inseri-las todas as vezes que visitar o site.
+e) Usuário frequente deseja ter a opção de lembrar as credenciais de login para que não precise inseri-las todas as vezes que visitar o site.
 
 II - Página Register
+
+a) Novo usuário deseja ter a opção de criar uma nova conta no site, fornecendo nome, endereço de e-mail e senha para registrar e acessar recursos exclusivos.
+
+Definição de pronto
+
+A funcionalidade cumpre e satisfaz os critérios de aceitação.
+
+O layout está de acordo com o protótipo.
+
+O código desta funcionalidade recebeu code review.
+
+A funcionalidade foi testada manualmente.
+
+Foram feitos testes de usabilidade.
 
 III - Página Feed
 
