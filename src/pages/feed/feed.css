@@ -60,12 +60,11 @@
 .button-publish {
   color: #fff;
   border-radius: 10px;
-  border: none;
   cursor: pointer;
   padding: 5px 10px;
   margin: 8px;
   background-color: #193549;
-  border: #fff;
+  border: none;
   width: 100px;
 }
 

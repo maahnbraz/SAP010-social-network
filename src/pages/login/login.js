@@ -1,7 +1,85 @@
+import customAlert from '../../components/customAlert';
 import {
   signIn,
   signInGoogle,
 } from '../../fireBase/firebaseAuth';
+
+// é uma função que recebe a div do login como parâmetro e cria os eventos de click nos botões.
+function setUpLoginElements(loginContainer) {
+  const formLogin = loginContainer.querySelector('.form-login');
+  const buttonNewAccount = loginContainer.querySelector('#button-new-account');
+  const buttonLoginGoogle = loginContainer.querySelector('#button-login-google');
+  const inputEmail = loginContainer.querySelector('#input-email');
+  const textEmailError = loginContainer.querySelector('.text-email-error');
+  const textPasswordError = loginContainer.querySelector('.text-password-error');
+  const inputPassword = loginContainer.querySelector('#input-password');
+
+  formLogin.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    inputEmail.classList.remove('input-error');
+    textEmailError.innerHTML = '';
+
+    inputPassword.classList.remove('input-error');
+    textPasswordError.innerHTML = '';
+
+    const email = inputEmail.value;
+    const password = inputPassword.value;
+
+    // tenta fazer o login usando e-mail e senha cadastrado.
+    // e retorna um Promisse que tem 2 callbacks
+    signIn(email, password)
+      // em caso de sucesso chama a função criada dentro do then
+      .then(() => {
+        // O login foi realizado com sucesso
+        window.location.hash = '#homepage';
+        // Redirecione para a página principal ou execute outra ação necessária
+      })
+      // em caso de erro chama a função criada dentro do catch
+      .catch((error) => {
+        // Ocorreu um erro durante o login
+        switch (error.code) {
+          case 'auth/user-not-found':
+            inputEmail.classList.add('input-error');
+            textEmailError.innerHTML = 'Usuário não encontrado';
+            break;
+
+          case 'auth/invalid-email':
+            inputEmail.classList.add('input-error');
+            textEmailError.innerHTML = 'E-mail inválido';
+            break;
+
+          case 'auth/wrong-password':
+            inputPassword.classList.add('input-error');
+            textPasswordError.innerHTML = 'Senha incorreta';
+            break;
+
+          case 'auth/missing-password':
+            inputPassword.classList.add('input-error');
+            textPasswordError.innerHTML = 'Digite a senha';
+            break;
+
+          default:
+            textPasswordError.innerHTML = `Erro ao fazer o login: ${error.code}`;
+        }
+      });
+  });
+
+  // login Google usa o GoogleAuthProvider para criar o provider usado no signInWithPopup
+  buttonLoginGoogle.addEventListener('click', () => {
+    signInGoogle()
+      .then(() => {
+        window.location.hash = '#homepage';
+      })
+      .catch(() => {
+        customAlert('Erro ao logar com o Google, tente novamente');
+      });
+  });
+
+  buttonNewAccount.addEventListener('click', () => {
+    window.location.hash = '#register';
+  });
+}
 
 // cria e retorna uma div com os elementos HTML da pagina de login
 export const getLoginPage = () => {
@@ -52,86 +130,3 @@ export const getLoginPage = () => {
 
   return loginContainer;
 };
-
-// é uma função que recebe a div do login como parâmetro e cria os eventos de click nos botões.
-function setUpLoginElements(loginContainer) {
-  const formLogin = loginContainer.querySelector('.form-login');
-  const buttonNewAccount = loginContainer.querySelector('#button-new-account');
-  const buttonLoginGoogle = loginContainer.querySelector('#button-login-google');
-  const inputEmail = loginContainer.querySelector('#input-email');
-  const textEmailError = loginContainer.querySelector('.text-email-error');
-  const textPasswordError = loginContainer.querySelector('.text-password-error');
-  const inputPassword = loginContainer.querySelector('#input-password');
-
-  formLogin.addEventListener('submit', (event) => {
-    event.preventDefault();
-
-    inputEmail.classList.remove('input-error');
-    textEmailError.innerHTML = '';
-
-    inputPassword.classList.remove('input-error');
-    textPasswordError.innerHTML = '';
-
-    const email = inputEmail.value;
-    const password = inputPassword.value;
-
-    // tenta fazer o login usando e-mail e senha cadastrado.
-    // e retorna um Promisse que tem 2 callbacks
-    signIn(email, password)
-      // em caso de sucesso chama a função criada dentro do then
-      .then((userCredential) => {
-        // O login foi realizado com sucesso
-        const user = userCredential.user;
-        window.location.hash = '#homepage';
-        // Redirecione para a página principal ou execute outra ação necessária
-      })
-      // em caso de erro chama a função criada dentro do catch
-      .catch((error) => {
-        // Ocorreu um erro durante o login
-        switch (error.code) {
-          case 'auth/user-not-found':
-            inputEmail.classList.add('input-error');
-            textEmailError.innerHTML = 'Usuário não encontrado';
-            break;
-
-          case 'auth/invalid-email':
-            inputEmail.classList.add('input-error');
-            textEmailError.innerHTML = 'E-mail inválido';
-            break;
-
-          case 'auth/wrong-password':
-            inputPassword.classList.add('input-error');
-            textPasswordError.innerHTML = 'Senha incorreta';
-            break;
-
-          case 'auth/missing-password':
-            inputPassword.classList.add('input-error');
-            textPasswordError.innerHTML = 'Digite a senha';
-            break;
-
-          default:
-            textPasswordError.innerHTML = `Erro ao fazer o login: ${error.code}`;
-        }
-      });
-  });
-
-  // login Google usa o GoogleAuthProvider para criar o provider usado no signInWithPopup
-  buttonLoginGoogle.addEventListener('click', (event) => {
-    signInGoogle()
-      .then((result) => {
-      // O login com o Google foi bem-sucedido, você pode acessar as informações do
-      // usuário através de result.user
-        const user = result.user;
-        window.location.hash = '#homepage';
-      })
-      .catch((error) => {
-      // Ocorreu um erro durante o login com o Google
-        const errorCode = error.code;
-        const errorMessage = error.message;
-      });
-  });
-
-  buttonNewAccount.addEventListener('click', (event) => {
-    window.location.hash = '#register';
-  });
-}

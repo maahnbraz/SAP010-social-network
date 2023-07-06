@@ -12,95 +12,6 @@ import customAlert from '../../components/customAlert.js';
 import customEditDialog from '../../components/customEditDialog.js';
 import customDialog from '../../components/customDialog.js';
 
-export default () => {
-  const feedContainer = document.createElement('div');
-  feedContainer.classList.add('feed-container');
-
-  const content = `
-  <section class="container-logo">
-  <div class="logo-nome">
-    <img src="../img/balão1.png" alt="balão"></img>
-    <h2>TravellersBook</h2></div>
-  </section>
-  
-  <section class="container-metade">
-    <section class="header">
-      <h2 class="titleHeader">TravellersBook<img class="logoHeader" src="./img/balão1.png" alt="balão"></h2>
-
-      <nav class="menu">
-        <a id='button-logout'>Sair</a>
-      </nav>
-    </section>
-
-    <div class='div-line'></div>
-
-    <section class="publish">
-      <span class ='welcome'>Olá, ${auth.currentUser.displayName}!</span>
-      <textarea id='input-text' class='input-text' type='text' placeholder='Compartilhe suas aventuras...'></textarea>
-      <button id='button-publish' class='button-publish'>Publicar</button>
-    </section>
-
-    <div class='div-line'></div>
-
-    <section id="feed"></section>
-    </section>
-    
-    `;
-
-  feedContainer.innerHTML = content;
-
-  const inputText = feedContainer.querySelector('#input-text');
-
-  const buttonPublish = feedContainer.querySelector('#button-publish');
-  buttonPublish.addEventListener('click', () => {
-    createPost(
-      new Date(),
-      auth.currentUser.displayName,
-      inputText.value,
-      auth.currentUser.uid,
-    )
-      .then(() => {
-        customAlert('Seu post foi publicado com sucesso');
-        inputText.value = '';
-        showFeed();
-      })
-      .catch(() => {
-        customAlert('Erro ao publicar post');
-      });
-  });
-
-  const buttonLogOut = feedContainer.querySelector('#button-logout');
-  buttonLogOut.addEventListener('click', () => {
-    customDialog('Deseja realmente sair?', () => {
-      logOut()
-        .then(() => {
-          window.location.hash = '#login';
-          header.innerHTML = '';
-        })
-        .catch(() => {
-          customAlert('Erro ao sair. Tente novamente.');
-        });
-    });
-  });
-  showFeed();
-
-  return feedContainer;
-};
-
-async function showFeed() {
-  const posts = await fetchPosts();
-  const feedElement = document.getElementById('feed');
-
-  feedElement.innerHTML = '';
-
-  posts.forEach((post) => {
-    const postElement = createPostElement(post, feedElement);
-    feedElement.appendChild(postElement);
-  });
-
-  return feedElement;
-}
-
 function createPostElement(post, feedElement) {
   const postElement = document.createElement('div');
   postElement.classList.add('post');
@@ -132,7 +43,7 @@ function createPostElement(post, feedElement) {
     <div class="text">${post.text}</div>
     <div class='container-btn'>
       <div class='container-like'>
-        <p id='button-like'><svg xmlns="http://www.w3.org/2000/svg"  class='icons-post' width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+        <p id='button-like'><svg xmlns="http://www.w3.org/2000/svg" class='icons-post' width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
         <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
         </svg></p>
         <p class="like" id='text-like-count'>${post.likes.length}</p>
@@ -207,8 +118,7 @@ function createPostElement(post, feedElement) {
               post.text = newText;
               customAlert('Post atualizado com sucesso!');
             })
-            .catch((error) => {
-              console.error('Erro ao editar o post:', error);
+            .catch(() => {
               customAlert(
                 'Ocorreu um erro ao editar o post. Por favor, tente novamente mais tarde.',
               );
@@ -220,3 +130,94 @@ function createPostElement(post, feedElement) {
 
   return postElement;
 }
+
+async function showFeed() {
+  const posts = await fetchPosts();
+  const feedElement = document.getElementById('feed');
+
+  feedElement.innerHTML = '';
+
+  posts.forEach((post) => {
+    const postElement = createPostElement(post, feedElement);
+    feedElement.appendChild(postElement);
+  });
+
+  return feedElement;
+}
+
+export default () => {
+  const feedContainer = document.createElement('div');
+  feedContainer.classList.add('feed-container');
+
+  const content = `
+  <section class="container-logo">
+  <div class="logo-nome">
+    <img src="../img/balão1.png" alt="balão"></img>
+    <h2>TravellersBook</h2></div>
+  </section>
+
+  <section class="container-metade">
+    <section class="header">
+      <h2 class="titleHeader">TravellersBook<img class="logoHeader" src="./img/balão1.png" alt="balão"></h2>
+
+      <nav class="menu">
+        <a id='button-logout'>Sair</a>
+      </nav>
+    </section>
+
+    <div class='div-line'></div>
+
+    <section class="publish">
+      <span class ='welcome'>Olá, ${auth.currentUser.displayName}!</span>
+      <textarea id='input-text' class='input-text' type='text' placeholder='Compartilhe suas aventuras...'></textarea>
+      <button id='button-publish' class='button-publish'>Publicar</button>
+    </section>
+
+    <div class='div-line'></div>
+
+    <section id="feed"></section>
+    </section>
+
+    `;
+
+  feedContainer.innerHTML = content;
+
+  const inputText = feedContainer.querySelector('#input-text');
+  const buttonPublish = feedContainer.querySelector('#button-publish');
+  buttonPublish.addEventListener('click', () => {
+    if (inputText.value !== '') {
+      createPost(
+        new Date(),
+        auth.currentUser.displayName,
+        inputText.value,
+        auth.currentUser.uid,
+      )
+        .then(() => {
+          customAlert('Seu post foi publicado com sucesso');
+          inputText.value = '';
+          showFeed();
+        })
+        .catch(() => {
+          customAlert('Erro ao publicar post');
+        });
+    } else {
+      customDialog('Você não pode publicar um post vazio.');
+    }
+  });
+
+  const buttonLogOut = feedContainer.querySelector('#button-logout');
+  buttonLogOut.addEventListener('click', () => {
+    customDialog('Deseja realmente sair?', () => {
+      logOut()
+        .then(() => {
+          window.location.hash = '#login';
+        })
+        .catch(() => {
+          customAlert('Erro ao sair. Tente novamente.');
+        });
+    });
+  });
+  showFeed();
+
+  return feedContainer;
+};

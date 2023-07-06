@@ -10,7 +10,15 @@ import {
 import { auth } from './firebaseConfig.js';
 
 // cadastro de usuarios novos
-export const createUser = (email, password, displayName) => createUserWithEmailAndPassword(auth, email, password).then((userCredential) => {
+export const createUser = (
+  email,
+  password,
+  displayName,
+) => createUserWithEmailAndPassword(
+  auth,
+  email,
+  password,
+).then((userCredential) => {
   // Depois que criou o usuário executa a função baixo
   const user = userCredential.user; // atualiza o perfil do usuário
   return updateProfile(user, { displayName });
