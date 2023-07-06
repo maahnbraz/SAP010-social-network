@@ -17,6 +17,13 @@ export default () => {
   feedContainer.classList.add('feed-container');
 
   const content = `
+  <section class="container-logo">
+  <div class="logo-nome">
+    <img src="../img/balão1.png" alt="balão"></img>
+    <h2>TravellersBook</h2></div>
+  </section>
+  
+  <section class="container-metade">
     <section class="header">
       <h2 class="titleHeader">TravellersBook<img class="logoHeader" src="./img/balão1.png" alt="balão"></h2>
 
@@ -35,7 +42,10 @@ export default () => {
 
     <div class='div-line'></div>
 
-    <section id="feed"></section>`;
+    <section id="feed"></section>
+    </section>
+    
+    `;
 
   feedContainer.innerHTML = content;
 
