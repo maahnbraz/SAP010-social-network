@@ -1,6 +1,8 @@
 <div align="center">
 
-# Rede Social - TravellerBook
+# Rede Social - TravellersBook
+![desktop](../src/img/desktop.png)
+<!-- ![mobile](../src/img/mobile.png) -->
 
 </div>
 
@@ -9,7 +11,7 @@
 Acesse o projeto: [aqui](http://)  
  <br>
 Status do projeto: Em desenvolvimento ✔<br>
-Tecnologias utilizadas: <br>
+Tecnologias e Ferramentas utilizadas: <br>
 
   <a href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics">
   <img src="https://skillicons.dev/icons?i=html"/>
@@ -52,9 +54,7 @@ do layout e historias do usuário totalmente desenvolvido por nós.
 
 ## 2. Resumo do projeto
 
-TravellersBook é uma rede social desenvolvida para que todas as pessoas que amam viajar possam
-compartilhar suas experiências e receber dicas sobre viagens. Neste projeto, foi desenvolvida
-uma SPA (Single Page Application) responsiva. Nela, é possível fazer, editar, curtir e excluir publicações.
+TravellersBook é uma rede social desenvolvida para entusiastas de viagens compartilharem suas experiências e receberem dicas valiosas. Nosso objetivo é criar um espaço onde pessoas que amam explorar o mundo possam se conectar e se inspirar mutuamente. Para alcançar isso, desenvolvemos uma Single Page Application (SPA) responsiva, proporcionando uma experiência fluida e intuitiva.
 
 Além disso permite à qualquer usuário criar uma conta de acesso,
 logar-se com ela, criar, editar, deletar e dar likes em publicações.
