@@ -7,7 +7,7 @@ import {
 export const getLoginPage = () => {
   // foi criada uma varíavel div para guardar o conteúdo na página de login.
   const loginContainer = document.createElement('div');
-  loginContainer.classList.add('login-container')
+  loginContainer.classList.add('login-container');
 
   const content = `
   <section class="container">
@@ -39,14 +39,16 @@ export const getLoginPage = () => {
       <!--criar um link de redirecionameto para criar nova conta, para usar a função implementada no js-->
     </form>
     </section>
-  `
+  `;
   // o content é uma string que tem o conteúdo da página HTML
-  // loginContainer é a div. o innerHTML é um atributo da div que é um "valor", tudo que está dentro da tag do elemento.
+  // loginContainer é a div. o innerHTML é um atributo da div que é um "valor",
+  // tudo que está dentro da tag do elemento.
   loginContainer.innerHTML = content;
 
-  //foi criada para configurar os eventos dos elementos da página.
-  //essa função foi criada para ficar mais legível. Foi separada em 2 partes para não ficar gigante.
-  setUpLoginElements(loginContainer)
+  // foi criada para configurar os eventos dos elementos da página.
+  // essa função foi criada para ficar mais legível.
+  // Foi separada em 2 partes para não ficar gigante.
+  setUpLoginElements(loginContainer);
 
   return loginContainer;
 };
@@ -57,19 +59,18 @@ function setUpLoginElements(loginContainer) {
   const buttonNewAccount = loginContainer.querySelector('#button-new-account');
   const buttonLoginGoogle = loginContainer.querySelector('#button-login-google');
   const inputEmail = loginContainer.querySelector('#input-email');
-  const textEmailError = loginContainer.querySelector(".text-email-error");
-  const textPasswordError = loginContainer.querySelector(".text-password-error")
+  const textEmailError = loginContainer.querySelector('.text-email-error');
+  const textPasswordError = loginContainer.querySelector('.text-password-error');
   const inputPassword = loginContainer.querySelector('#input-password');
 
-  formLogin.addEventListener('submit', event => {
+  formLogin.addEventListener('submit', (event) => {
     event.preventDefault();
 
     inputEmail.classList.remove('input-error');
-    textEmailError.innerHTML = ""
+    textEmailError.innerHTML = '';
 
     inputPassword.classList.remove('input-error');
-    textPasswordError.innerHTML = ""
-
+    textPasswordError.innerHTML = '';
 
     const email = inputEmail.value;
     const password = inputPassword.value;
@@ -78,58 +79,59 @@ function setUpLoginElements(loginContainer) {
     // e retorna um Promisse que tem 2 callbacks
     signIn(email, password)
       // em caso de sucesso chama a função criada dentro do then
-      .then(userCredential => {
+      .then((userCredential) => {
         // O login foi realizado com sucesso
         const user = userCredential.user;
-        window.location.hash = "#homepage"
+        window.location.hash = '#homepage';
         // Redirecione para a página principal ou execute outra ação necessária
       })
       // em caso de erro chama a função criada dentro do catch
-      .catch(error => {
+      .catch((error) => {
         // Ocorreu um erro durante o login
         switch (error.code) {
           case 'auth/user-not-found':
-            inputEmail.classList.add('input-error')
-            textEmailError.innerHTML = "Usuário não encontrado";
+            inputEmail.classList.add('input-error');
+            textEmailError.innerHTML = 'Usuário não encontrado';
             break;
 
           case 'auth/invalid-email':
             inputEmail.classList.add('input-error');
-            textEmailError.innerHTML = "E-mail inválido";
+            textEmailError.innerHTML = 'E-mail inválido';
             break;
 
           case 'auth/wrong-password':
             inputPassword.classList.add('input-error');
-            textPasswordError.innerHTML = "Senha incorreta";
+            textPasswordError.innerHTML = 'Senha incorreta';
             break;
 
           case 'auth/missing-password':
             inputPassword.classList.add('input-error');
-            textPasswordError.innerHTML = "Digite a senha";
+            textPasswordError.innerHTML = 'Digite a senha';
             break;
 
           default:
-            textPasswordError.innerHTML = "Erro ao fazer o login: " + error.code;
+            textPasswordError.innerHTML = `Erro ao fazer o login: ${error.code}`;
         }
       });
   });
 
   // login Google usa o GoogleAuthProvider para criar o provider usado no signInWithPopup
-  buttonLoginGoogle.addEventListener('click', event => {
+  buttonLoginGoogle.addEventListener('click', (event) => {
     signInGoogle()
-    .then(result => {
-      // O login com o Google foi bem-sucedido, você pode acessar as informações do usuário através de result.user
-      const user = result.user;
-      window.location.hash = "#homepage"
-    })
-    .catch(error => {
+      .then((result) => {
+      // O login com o Google foi bem-sucedido, você pode acessar as informações do
+      // usuário através de result.user
+        const user = result.user;
+        window.location.hash = '#homepage';
+      })
+      .catch((error) => {
       // Ocorreu um erro durante o login com o Google
-      const errorCode = error.code;
-      const errorMessage = error.message;
-    });
+        const errorCode = error.code;
+        const errorMessage = error.message;
+      });
   });
 
-  buttonNewAccount.addEventListener('click', event => {
-      window.location.hash = "#register"
+  buttonNewAccount.addEventListener('click', (event) => {
+    window.location.hash = '#register';
   });
 }

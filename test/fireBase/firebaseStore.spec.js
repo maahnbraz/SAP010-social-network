@@ -16,6 +16,7 @@ import {
   deslikeCounter,
   deletePost,
   editPost,
+  userData,
 } from '../../src/fireBase/firebaseStore.js';
 
 import { db } from '../../src/fireBase/firebaseConfig';
@@ -134,170 +135,76 @@ describe('deletePost', () => {
 });
 
 // Testando função de apagar post pagina Feed
-describe('deletePost', () => {
-  let postElement;
-  let buttonDelete;
-  let feedElement;
-
-  beforeEach(() => {
-    // Configurar elementos simulados antes de cada teste
-    postElement = document.createElement('div');
-    postElement.id = 'post1';
-
-    buttonDelete = document.createElement('button');
-    buttonDelete.id = 'button-delete';
-
-    feedElement = document.createElement('div');
-    feedElement.id = 'feed';
-    feedElement.appendChild(postElement);
-    feedElement.appendChild(buttonDelete);
-  });
-
-  it('Deveria excluir a postagem e remover o elemento do feed', async () => {
-    // Simular o clique no botão de exclusão
-    buttonDelete.click();
-
-    // Verificar se a função deletePost foi chamada com o ID correto
-    expect(deletePost).toHaveBeenCalledWith('post1');
-
-    // Verificar se o elemento da postagem foi removido do feed
-    expect(feedElement.contains(postElement)).toBe(false);
+describe('Função delete', () => {
+  it('Deve deletar uma publicação', async () => {
+    const mockDoc = 'doc';
+    doc.mockReturnValueOnce(mockDoc);
+    deleteDoc.mockResolvedValueOnce();
+    const postId = 'id-post';
+    await deletePost(postId);
+    expect(doc).toHaveBeenCalledTimes(1);
+    expect(doc).toHaveBeenCalledWith(undefined, 'posts', postId);
+    expect(deleteDoc).toHaveBeenCalledTimes(1);
+    expect(deleteDoc).toHaveBeenCalledWith(mockDoc);
   });
 });
 
-// Testando função de editar do firebase store
-describe('editPost', () => {
-  it('Deveria editar a postagem com o novo texto fornecido', async () => {
-    const postId = 'post1';
-    const newText = 'Novo texto';
-
-    // Simular a função updateDoc do Firestore
-    const updateDoc = jest.fn();
-
-    // Chamar a função editPost com o ID da postagem e o novo texto
-    await editPost(postId, newText);
-
-    // Verificar se a função updateDoc foi chamada corretamente
-    expect(updateDoc).toHaveBeenCalledWith(doc(db, 'posts', postId), {
-      text: newText,
-    });
-  });
-});
-
-// Testando função de editar post pagina Feed
-describe('editPost', () => {
-  let postElement;
-  let buttonEdit;
-  let mockPromptInput;
-
-  beforeEach(() => {
-    // Configurar elementos simulados antes de cada teste
-    postElement = document.createElement('div');
-    postElement.setAttribute('data-post-id', 'post1');
-
-    buttonEdit = document.createElement('button');
-    buttonEdit.classList.add('button-edit');
-
-    mockPromptInput = 'Novo texto';
-
-    // Simular a função 'prompt' para retornar o novo texto
-    window.prompt = jest.fn().mockReturnValue(mockPromptInput);
-
-    postElement.appendChild(buttonEdit);
-  });
-
-  it('Deveria editar a postagem com o novo texto fornecido', async () => {
-    // Simular o clique no botão de edição
-    buttonEdit.click();
-
-    // Verificar se a função prompt foi chamada
-    expect(window.prompt).toHaveBeenCalledWith('Digite o novo texto:');
-
-    // Verificar se a função editPost foi chamada com o ID correto e o novo texto
-    expect(editPost).toHaveBeenCalledWith('post1', mockPromptInput);
-
-    // Verificar se o texto da postagem foi atualizado corretamente
-    const textElement = postElement.querySelector('.text');
-    expect(textElement.textContent).toBe(mockPromptInput);
-  });
-});
-
-// Testando a função de criar post do firebase store
-describe('createPost', () => {
-  it('Deveria criar uma nova postagem com os dados fornecidos', async () => {
-    const date = new Date();
-    const username = 'john.doe';
-    const text = 'Nova postagem';
-    const uid = 'user123';
-
-    // Chamar a função createPost com os dados da nova postagem
-    await createPost(date, username, text, uid);
-
-    // Verificar se a função addDoc foi chamada corretamente
-    expect(addDoc).toHaveBeenCalledWith(collection(db, 'posts'), {
-      date,
-      username,
-      likes: [],
-      text,
-      uid,
-    });
-  });
-});
-
-// Testando a função criar post da pagina feed
-describe('createPostElement', () => {
-  let post;
-  let feedElement;
-
-  beforeEach(() => {
-    // Configurar as variáveis necessárias antes de cada teste
-    post = {
-      id: 'post1',
-      date: {
-        seconds: 1625168400,
-        nanoseconds: 0,
-      },
-      username: 'john.doe',
-      text: 'Exemplo de postagem',
-      likes: [],
-      uid: 'user123',
+// Testando função de editar pagina Feed
+describe('Função editPost', () => {
+  it('Deve editar uma publicação', async () => {
+    updateDoc.mockResolvedValue();
+    const mockDoc = 'doc';
+    doc.mockReturnValueOnce(mockDoc);
+    const postId = 'idPost';
+    const textArea = 'conteudoPost';
+    const updatedPost = {
+      post: textArea,
     };
+    await editPost(postId, textArea);
+    expect(doc).toHaveBeenCalledTimes(1);
+    expect(doc).toHaveBeenCalledWith(undefined, 'posts', postId);
+    expect(updateDoc).toHaveBeenCalledTimes(1);
+    expect(updateDoc).toHaveBeenCalledWith(mockDoc, updatedPost);
+  });
+});
 
-    feedElement = document.createElement('div');
+describe('teste userData', () => {
+  it('deve acessar os dados do usuário e guardar na coleção', async () => {
+    addDoc.mockResolvedValueOnce();
+    const mockCollection = 'collection';
+    collection.mockReturnValueOnce(mockCollection);
+    const name = 'nome';
+    const lastname = 'sobrenome';
+    const infosAdd = {
+      nome: name,
+      sobrenome: lastname,
+    };
+    await userData(name, lastname);
+
+    expect(addDoc).toHaveBeenCalledTimes(1);
+    expect(addDoc).toHaveBeenCalledWith(mockCollection, infosAdd);
+    expect(collection).toHaveBeenCalledTimes(1);
+    expect(collection).toHaveBeenCalledWith(undefined, 'infos-add');
   });
 
-  it('Deveria criar corretamente o elemento de postagem com os dados fornecidos', () => {
-    // Chamar a função createPostElement com os dados da postagem
-    const postElement = createPost(post, feedElement);
+  describe('Função createPost', () => {
+    it('deve criar um post e guardar na coleção', async () => {
+      addDoc.mockResolvedValueOnce();
+      const mockCollection = 'collection';
+      collection.mockReturnValueOnce(mockCollection);
 
-    // Verificar se o elemento foi criado corretamente
-    expect(postElement.getAttribute('data-post-id')).toBe(post.id);
-    expect(postElement.classList.contains('post')).toBe(true);
+      const dataPostagem = 'xx/xx/xxxx';
+      const postagem = 'texto';
+      const username = 'usernameTeste';
+      const userId = 'usernameteste';
+      await createPost(postagem, dataPostagem, username, userId);
 
-    // Verificar se as informações do post foram renderizadas corretamente
-    const nameElement = postElement.querySelector('.name');
-    const dateElement = postElement.querySelector('.date');
-    const textElement = postElement.querySelector('.text');
-
-    expect(nameElement.textContent).toBe(post.username);
-
-    // Verificar se a data foi formatada corretamente
-    const expectedDate = '01/07/2021 00:00';
-    expect(dateElement.textContent).toBe(expectedDate);
-
-    expect(textElement.textContent).toBe(post.text);
-
-    // Verificar se os botões de edição e exclusão foram renderizados corretamente
-    const btnEditElement = postElement.querySelector('.button-edit');
-    const btnDeleteElement = postElement.querySelector('.button-delete');
-
-    // Verificar se os botões foram renderizados corretamente com base no UID do usuário
-    if (post.uid === auth.currentUser.uid) {
-      expect(btnEditElement).toBeDefined();
-      expect(btnDeleteElement).toBeDefined();
-    } else {
-      expect(btnEditElement).toBeNull();
-      expect(btnDeleteElement).toBeNull();
-    }
+      expect(addDoc).toHaveBeenCalledTimes(1);
+      expect(addDoc).toHaveBeenCalledWith(mockCollection, posts);
+      expect(collection).toHaveBeenCalledTimes(1);
+      expect(collection).toHaveBeenCalledWith(undefined, 'posts');
+    });
   });
+
+// testando
 });
