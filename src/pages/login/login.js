@@ -41,11 +41,13 @@ export const getLoginPage = () => {
     </section>
   `;
   // o content é uma string que tem o conteúdo da página HTML
-  // loginContainer é a div. o innerHTML é um atributo da div que é um "valor", tudo que está dentro da tag do elemento.
+  // loginContainer é a div. o innerHTML é um atributo da div que é um "valor",
+  // tudo que está dentro da tag do elemento.
   loginContainer.innerHTML = content;
 
   // foi criada para configurar os eventos dos elementos da página.
-  // essa função foi criada para ficar mais legível. Foi separada em 2 partes para não ficar gigante.
+  // essa função foi criada para ficar mais legível.
+  // Foi separada em 2 partes para não ficar gigante.
   setUpLoginElements(loginContainer);
 
   return loginContainer;
@@ -117,7 +119,8 @@ function setUpLoginElements(loginContainer) {
   buttonLoginGoogle.addEventListener('click', (event) => {
     signInGoogle()
       .then((result) => {
-      // O login com o Google foi bem-sucedido, você pode acessar as informações do usuário através de result.user
+      // O login com o Google foi bem-sucedido, você pode acessar as informações do
+      // usuário através de result.user
         const user = result.user;
         window.location.hash = '#homepage';
       })

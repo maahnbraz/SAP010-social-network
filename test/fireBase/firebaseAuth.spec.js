@@ -7,8 +7,10 @@ import {
   updateProfile,
 } from 'firebase/auth';
 
-// Essas funções são assíncronas, ou seja, que não depende de finalização para seguir com o restante do código
-// no teste colocamos await para que o teste só siga em frente depois de terminar de executar a função async
+// Essas funções são assíncronas, ou seja, que não depende de finalização para seguir 
+// com o restante do código
+// no teste colocamos await para que o teste só siga em frente depois de terminar 
+// de executar a função async
 import {
   createUser,
   signIn,
@@ -43,7 +45,8 @@ it('Expected to create a new user and update its profile', async () => {
     user: {},
   };
   // Aqui nós só estamos descrevendo o que a função do firabase retorna.
-  // mockResolvedValueOnce - é um método específico do Jest que pode ser usado para definir o comportamento de uma função mock,
+  // mockResolvedValueOnce - é um método específico do Jest que pode ser usado
+  // para definir o comportamento de uma função mock,
   // -especificando o valor de retorno esperado quando essa função é chamada.
   createUserWithEmailAndPassword.mockResolvedValueOnce(userCredential);
   updateProfile.mockResolvedValueOnce();
