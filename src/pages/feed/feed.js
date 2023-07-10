@@ -11,6 +11,7 @@ import {
 import customAlert from '../../components/customAlert.js';
 import customEditDialog from '../../components/customEditDialog.js';
 import customDialog from '../../components/customDialog.js';
+import baloon from '../../img/balão1.png';
 
 export default () => {
   const feedContainer = document.createElement('div');
@@ -18,7 +19,7 @@ export default () => {
 
   const content = `
     <section class="header">
-      <h2 class="titleHeader">TravellersBook<img class="logoHeader" src="./img/balão1.png" alt="balão"></h2>
+      <h2 class="titleHeader">TravellersBook<img class="logoHeader" src="${baloon}" alt="balão"></h2>
 
       <nav class="menu">
         <a id='button-logout'>Sair</a>

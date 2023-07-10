@@ -1,6 +1,7 @@
 import { createUser } from '../../fireBase/firebaseAuth.js';
 import { userData } from '../../fireBase/firebaseStore.js';
-import customAlert from '../../components/customAlert.js'
+import customAlert from '../../components/customAlert.js';
+import balloon from '../../img/balão1.png'
 
 export default () => {
   const registerContainer = document.createElement('div');
@@ -8,7 +9,7 @@ export default () => {
 
   const content = `
     <section class="section-logo">
-      <img src="../img/balão1.png" alt="balão"></img>
+      <img src="${balloon}" alt="balão"></img>
       <h2>TravellersBook</h2>
     </section>
     

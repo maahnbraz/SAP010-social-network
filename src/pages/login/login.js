@@ -3,6 +3,9 @@ import {
   signInGoogle,
 } from '../../fireBase/firebaseAuth';
 
+import baloon from '../../img/balão1.png';
+import logoGoogle from'../../img/googlelogo.png';
+
 // cria e retorna uma div com os elementos HTML da pagina de login
 export const getLoginPage = () => {
   // foi criada uma varíavel div para guardar o conteúdo na página de login.
@@ -12,7 +15,7 @@ export const getLoginPage = () => {
   const content = `
   <section class="container">
     <section class="section-logo">
-      <img src="../img/balão1.png" alt="balão"></img>
+      <img src="${baloon}" alt="balão"></img>
       <h2>TravellersBook</h2>
     </section>
     <section class="texto-login">
@@ -32,7 +35,7 @@ export const getLoginPage = () => {
       <button class="button-login" id="button-login" type="submit">Entrar</button>
       <span class="text-google">ou acesse com sua conta Google:</span>
       <button class="button-login-google" id="button-login-google" type="button">
-         <img src="../img/googlelogo.png" alt="Logo Google" class="logo-google">
+         <img src="${logoGoogle}" alt="Logo Google" class="logo-google">
       </button>
       <span class="text-new-account">ainda não tem conta?</span>
       <button class="button-new-account" id="button-new-account" type="button">Crie uma conta</button>
