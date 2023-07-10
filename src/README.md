@@ -107,6 +107,10 @@ II - Página Register
 
 a) Novo usuário deseja ter a opção de criar uma nova conta no site, fornecendo nome, endereço de e-mail e senha para registrar e acessar recursos exclusivos.
 
+b) Como usuário eu quero que apareça um aviso caso não tenha preenchido os campos corretamente.
+
+c) Ao terminar de me cadastrar e apertar o botão de “Cadastrar”, me informe por meio de aviso que o cadastro ocorreu corretamente.
+
 Definição de pronto
 
 A funcionalidade cumpre e satisfaz os critérios de aceitação.
