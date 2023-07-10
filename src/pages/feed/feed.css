@@ -53,19 +53,18 @@
   flex-direction: column;
   align-items: center;
   width: 92%;
-  max-width: 350px;
+  width: 350px;
   margin-left: -10px;
 }
 
 .button-publish {
   color: #fff;
   border-radius: 10px;
-  border: none;
   cursor: pointer;
   padding: 5px 10px;
   margin: 8px;
   background-color: #193549;
-  border: #fff;
+  border: none;
   width: 100px;
 }
 
@@ -97,7 +96,7 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  max-width: 350px;
+  width: 350px;
 }
 
 .post {
@@ -157,4 +156,72 @@
 .icons-post {
   width: 20px;
   height: 20px;
+}
+
+.logo-nome{
+  display: none;
+}
+
+@media (min-width: 900px) {
+
+  .feed-container {
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .container-logo{
+    width: 40%;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+  }
+
+  .container-metade{
+    width: 60%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+  }
+
+  .logo-nome{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .div-line{
+    width: 100%;
+  }
+.publish{
+  width: 100%;
+  display: flex;
+ text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+#feed{
+  width: 100%;
+}
+
+
+
+
+
+
 }
