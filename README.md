@@ -48,7 +48,7 @@ Tecnologias utilizadas: <br>
 ## 1. Prefácio
 
 Desenvolvido no bootcamp da Laboratória, a ideia era criar uma rede social, tendo o escopo do tema,
-do layout e historias do usuário totalmente desenvolvido por nós.
+do layout e histórias do usuário totalmente desenvolvido por nós.
 
 ## 2. Resumo do projeto
 
@@ -56,7 +56,7 @@ TravellersBook é uma rede social desenvolvida para que todas as pessoas que ama
 compartilhar suas experiências e receber dicas sobre viagens. Neste projeto, foi desenvolvida
 uma SPA (Single Page Application) responsiva. Nela, é possível fazer, editar, curtir e excluir publicações.
 
-Além disso permite à qualquer usuário criar uma conta de acesso,
+Além disso permite a qualquer usuário criar uma conta de acesso,
 logar-se com ela, criar, editar, deletar e dar likes em publicações.
 
 O objetivo principal de aprendizagem deste projeto foi construir uma [Single-page
@@ -66,8 +66,8 @@ Application
 qual é possível **ler e escrever dados**.
 
 Logotipo e nome:
-O logotipo passa a idéia de estar sempre nas nuvens, viajando, criando experiências.
-O nome "Travellers Book" remete aos diarios de bordos, caderno de anotações de viagens.
+O logotipo passa a ideia de estar sempre nas nuvens, viajando, criando experiências.
+O nome "TravellersBook" remete aos diarios de bordos, caderno de anotações de viagens.
 
 Slogan:  
 "Explore, compartilhe, viaje com seu guia de aventuras."
@@ -87,21 +87,37 @@ Prepare-se para voar em um universo de descobertas. Nós da TravellersBook acred
 
 ![Alt text](src/img/prototipo_alta.png)
 
-## 4. Historias do usuário
+## 4. Histórias do usuário
 
 Foram definidas as seguintes histórias de usuários, com respectivos critérios de aceitação e definições de pronto:
 
 I - Página Login
 
-a) Novo usuário deseja ter a opção de criar uma nova conta no site, fornecendo nome, endereço de e-mail e senha para registrar e acessar recursos exclusivos.
+a) Como usuário não autenticado desejo ter a opção de fazer login usando o endereço de e-mail e senha para acessar a conta pessoal no site.
 
-b) Usuário não autenticado deseja ter a opção de fazer login usando o endereço de e-mail e senha para acessar a conta pessoal no site.
+b) Como novo usuário desejo ter a opção de fazer login usando a conta Google para acessar o site com mais facilidade.
 
-c) Novo usuário deseja ter a opção de fazer login usando a conta Google para acessar o site com mais facilidade.
-
-d) Usuário de dispositivo móvel deseja ter uma experiência de login responsiva, onde os campos de entrada e botões se ajustem à tela do dispositivo e sejam fáceis de usar.
+c) Como usuário de dispositivo móvel desejo ter uma experiência de login responsiva, onde os campos de entrada e botões se ajustem à tela do dispositivo e sejam fáceis de usar.
 
 II - Página Register
+
+a) Novo usuário deseja ter a opção de criar uma nova conta no site, fornecendo nome, endereço de e-mail e senha para registrar e acessar recursos exclusivos.
+
+b) Como usuário eu quero que apareça um aviso caso não tenha preenchido os campos corretamente.
+
+c) Ao terminar de me cadastrar e apertar o botão de “Cadastrar”, me informe por meio de aviso que o cadastro ocorreu corretamente.
+
+Definição de pronto
+
+A funcionalidade cumpre e satisfaz os critérios de aceitação.
+
+O layout está de acordo com o protótipo.
+
+O código desta funcionalidade recebeu code review.
+
+A funcionalidade foi testada manualmente.
+
+Foram feitos testes de usabilidade.
 
 III - Página Feed
 
@@ -142,7 +158,7 @@ Aline Pamplona
 
 [![Github Badge](https://img.shields.io/badge/-Github-000?style=flat-square&logo=Github&logoColor=white&link)](https://github.com/alinepamplona) [![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white&link)](https://www.linkedin.com/in/alinebpamplona/)
 
-Alessandra
+Alessandra Alves
 
 [![Github Badge](https://img.shields.io/badge/-Github-000?style=flat-square&logo=Github&logoColor=white&link)](https://github.com/AlessandraAlvesLopes) [![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white&link)]("https://www.linkedin.com/in/alessandraalveslopes/")
 
