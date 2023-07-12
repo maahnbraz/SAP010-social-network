@@ -181,8 +181,6 @@ function createPostElement(post, feedElement) {
 
         feedElement.removeChild(postElement);
       })
-
-
     });
   }
 
@@ -190,7 +188,7 @@ function createPostElement(post, feedElement) {
   const buttonEdit = postElement.querySelector('.button-edit');
   if (buttonEdit) {
     buttonEdit.addEventListener('click', () => {
-      //const newText = prompt('Digite o novo texto:');
+      // const newText = prompt('Digite o novo texto:');
       customEditDialog(post.text, (newText) => {
         const postId = postElement.getAttribute('data-post-id');
         if (newText) {
@@ -198,7 +196,7 @@ function createPostElement(post, feedElement) {
             .then(() => {
               const textElement = postElement.querySelector('.text');
               textElement.textContent = newText;
-              //atualiza a variável post localmente
+              // atualiza a variável post localmente
               post.text = newText;
               customAlert('Post atualizado com sucesso!');
             })
