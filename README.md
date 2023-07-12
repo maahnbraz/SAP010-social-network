@@ -107,18 +107,6 @@ b) Como usuário eu quero que apareça um aviso caso não tenha preenchido os ca
 
 c) Ao terminar de me cadastrar e apertar o botão de “Cadastrar”, me informe por meio de aviso que o cadastro ocorreu corretamente.
 
-Definição de pronto
-
-A funcionalidade cumpre e satisfaz os critérios de aceitação.
-
-O layout está de acordo com o protótipo.
-
-O código desta funcionalidade recebeu code review.
-
-A funcionalidade foi testada manualmente.
-
-Foram feitos testes de usabilidade.
-
 III - Página Feed
 
 a) Os usuários podem explorar uma página que exibirá todos os posts disponíveis.
@@ -132,6 +120,18 @@ d) Caso deseje voltar à tela inicial de Login, terei a opção de retornar à H
 e) Além disso, dentro da página do Feed, encontrarei a opção de publicar um novo post. Isso me permitirá compartilhar minhas próprias experiências e contribuir com a comunidade.
 
 f) Por fim, caso decida sair da página do Feed, terei a opção de sair diretamente, encerrando minha sessão no sistema de forma conveniente.
+
+Definição de pronto
+
+A funcionalidade cumpre e satisfaz os critérios de aceitação.
+
+O layout está de acordo com o protótipo.
+
+O código desta funcionalidade recebeu code review.
+
+A funcionalidade foi testada manualmente.
+
+Foram feitos testes de usabilidade.
 
 ## 5. Objetivos alcançados
 
