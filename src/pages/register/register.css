@@ -1,20 +1,21 @@
 .register-container{
-  display:flex;
+  display: flex;
   flex-direction: column;
-  align-items: center;
   width: 100%;
+  margin: 0;
+  padding: 0;
+  align-items: center;
 }
 
 .form-register {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 80vw;
-  background:#5555;
+  width: 65%;
+  background: #5555;
   border-radius: 30px;
   padding: 20px 20px 20px 20px;
-  margin-top: 3vh;
-  margin-bottom: 16px;
+  margin: 20px;
 }
 
 .inputsRegister {
@@ -60,8 +61,8 @@
   padding: 5px 10px;
   flex: 1;
   margin-top: 8px;
-  margin-right: 5px;
   margin-left: 5px;
+  margin-right: 5px;
 }
 
 .button-back {
@@ -73,35 +74,47 @@
   justify-content: right;
   flex: 1;
   margin-top: 8px;
-  margin-left: 5px;
   margin-right: 5px;
+  margin-left: 5px;
 }
 
 @media (min-width: 900px) {
-  #root{
-    width: 900px;
-  }
-
   .register-container {
-    width: 950px;
-    height: 100vh;
+    display: flex;
     flex-direction: row;
     justify-content: space-around;
   }
 
   .form-register {
-    width: 35vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    padding: 20px;
+  }
+
+  .section-logo-register {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 200px;
+    padding-bottom: 50px;
   }
 
   .button-group{
     width: 100%;
   }
 
+  .buttonRegister {
+    margin-right: 10px;
+  }
+  
+  .button-back {
+    margin-left: 10px;
+  }
+
   .input-error{
     border: 1px solid #9D2045;
   }
 
-  .text-error{
-    font-size: 10px;
-  }
 }

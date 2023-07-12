@@ -5,9 +5,13 @@ html {
   align-items: center;
   padding: 0;
   margin: 0;
+  height: 100%;
 }
 
 body {
+  height: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -19,27 +23,17 @@ body {
 }
 
 main {
-  flex-grow: 1;
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
-}
-
-.section-logo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.section-logo img {
-  width: 130px;
+  justify-content: space-between;
 }
 
 h2 {
   font-family: 'Amatic SC', cursive;
   font-size: 40px;
+  margin: 0;
 }
 
 .text-title {
@@ -130,6 +124,18 @@ footer {
   font-family: 'arial', cursive;
   font-size: 10px;
   color: #000;
+}
+
+@media (min-width: 900px) {
+  #root{
+    width: 900px;
+  }
+}
+
+@media (min-width: 1200px) {
+  #root{
+    width: 1200px;
+  }
 }
 
 @media (min-width: 400px) {

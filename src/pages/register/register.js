@@ -9,13 +9,13 @@ export default () => {
   registerContainer.classList.add('register-container');
 
   const content = `
-    <section class="section-logo">
-      <img src="${balloon}" alt="balão"></img>
+    <section class='section-logo-register'>
+      <img src='${balloon}' alt='balão'></img>
       <h2>TravellersBook</h2>
     </section>
     
     <form class='form-register'>
-        <span class="text-title">CADASTRE-SE</span>
+        <span class='text-title'>CADASTRE-SE</span>
         <input class='inputsRegister' type='text' placeholder='nome' id='nameRegister'>
         <span class='text-error' id='text-name-error'></span>
         <input class='inputsRegister' type='text' placeholder='sobrenome' id='lastnameRegister'>
@@ -26,9 +26,9 @@ export default () => {
         <span class='text-error' id='text-email-error'></span>
         <input class='inputsRegister' type='password' placeholder='senha' id='passwordRegister'>
         <span class='text-error' id='text-password-error'></span>
-        <section class="button-group">
+        <section class='button-group'>
+        <button class='button-back' type='button'>Voltar</button>
           <button class='buttonRegister' id='firebaseRegister' type='submit' >Cadastrar</button>
-          <button class="button-back" type='button'>&laquo; Voltar</button>
         </section>
         </form>
     `;

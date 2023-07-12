@@ -8,8 +8,6 @@
 }
 
 .container {
-  padding: 20px;
-  padding-bottom: 0;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -25,7 +23,6 @@
   background: #5555;
   border-radius: 30px;
   padding: 20px 20px 20px 20px;
-  margin-top: 3vh;
   margin-bottom: 16px;
 }
 
@@ -109,23 +106,20 @@
 .slogan{
   font-family: 'Amatic SC', cursive;
   color: white;
+  font-size: 20px;
 }
 
 @media (min-width: 900px) {
-  /*   #root{
-    width: 100wh;
-  } */
   .login-container {
     display: flex;
     flex-direction: row;
-    height: 100vh;
   }
 
   .container {
     display: flex;
     align-items: center;
     flex-direction: column;
-    width: 45%;
+    width: 50%;
     padding: 20px;
   }
 
@@ -133,40 +127,26 @@
     display: flex;
     text-align: justify;
     font-family: 'Amatic SC', cursive;
+    font-size: 20px;
     color: white;
+    padding-bottom: 40px;
   }
 
   .section-logo {
     width: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
-  }
-
-  .section-logo img{
-    width: 40%;
-  }
-
-  .section-logo h2{
-    font-size: 3rem;
-    margin: 0;
+    justify-content: space-around;
   }
 
   .form-login {
+    margin-top: 3vh;
     width: 65%;
-  }
-
-  .text-google,
-  .text-new-account {
-    font-size: 10px;
   }
 
   .input-error {
     border: 1px solid #9d2045;
-  }
-
-  .text-email-error,
-  .text-password-error {
-    font-size: 10px;
   }
 
   .logo-google {
@@ -181,3 +161,5 @@
     width: 125px;
   }
 }
+
+
