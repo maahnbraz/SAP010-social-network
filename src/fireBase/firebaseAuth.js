@@ -23,7 +23,6 @@ export const createUser = (
   const user = userCredential.user; // atualiza o perfil do usuário
   return updateProfile(user, { displayName });
 });
-// criar um catch?
 
 export const signIn = (email, password) => signInWithEmailAndPassword(auth, email, password);
 

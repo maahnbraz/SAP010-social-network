@@ -10,3 +10,5 @@ export default (message) => {
     body.removeChild(customAlert);
   }, 3000); // 3000 milissegundos = 3 segundos
 };
+
+// Essa é a função de criar o alert no body, ela irá durar 3 segundos

@@ -6,7 +6,7 @@
 
 <div align="center">
 
-Acesse o projeto: [aqui](http://)  
+Acesse o projeto: [aqui](https://projredenetwork.web.app/)  
  <br>
 Status do projeto: Em desenvolvimento ✔<br>
 Tecnologias utilizadas: <br>

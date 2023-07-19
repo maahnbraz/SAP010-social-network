@@ -31,3 +31,5 @@ export default (text, onClickOk) => {
 
   body.appendChild(editDialog);
 };
+
+// Essa é a função de editar o post

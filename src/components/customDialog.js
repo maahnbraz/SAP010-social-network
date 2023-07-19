@@ -31,3 +31,5 @@ export default (text, onClickOk) => {
 
   body.appendChild(dialog);
 };
+
+// Esse é o alerta para confirmar se quer realmente apagar uma publicação
