@@ -41,7 +41,8 @@ Tecnologias utilizadas: <br>
 - [3. Protótipos de baixa e alta fidelidade](#3-protótipos-de-baixa-e-alta-fidelidade)
 - [4. Histórias do usuário](#4-historias-do-usuário)
 - [5. Objetivos Alcançados](#5-objetivos-alcançados)
-- [6. Desenvolvedoras](#6-desenvolvedoras)
+- [6. Testes Unitários](#6-testes-unitarios)
+- [7. Desenvolvedoras](#7-desenvolvedoras)
 
 ---
 
@@ -152,7 +153,11 @@ Foram feitos testes de usabilidade.
 - [x] Usuário pode editar e excluir as suas publicações;
 - [x] Posts são atualizados em tempo real;
 
-## 6. Desenvolvedoras
+## 6.Testes Unitários
+
+![Alt text](/src/img/testes.png)
+
+## 7. Desenvolvedoras
 
 Aline Pamplona
 
